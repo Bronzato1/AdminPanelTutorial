@@ -2,4 +2,3 @@ bin
 obj
 wwwroot/bower_components
 wwwroot/build
-wwwroot/dist
