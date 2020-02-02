@@ -2,7 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CRUD_Operations.Models
+namespace AdminPanelTutorial.Models
 {
     public partial class MyDbContext : DbContext
     {

@@ -21,7 +21,7 @@ namespace AdminPanelTutorial.Migrations
                     Email = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Password = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Phone = table.Column<string>(unicode: false, maxLength: 15, nullable: false),
-                    Created = table.Column<DateTimeOffset>(nullable: false, defaultValueSql: "getdate()")
+                    Created = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {
@@ -41,7 +41,7 @@ namespace AdminPanelTutorial.Migrations
                     Phone = table.Column<string>(unicode: false, maxLength: 15, nullable: false),
                     Gender = table.Column<int>(nullable: false),
                     Specialist = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
-                    Created = table.Column<DateTimeOffset>(nullable: false, defaultValueSql: "getdate()")
+                    Created = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {
@@ -59,7 +59,7 @@ namespace AdminPanelTutorial.Migrations
                     Email = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Password = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Phone = table.Column<string>(unicode: false, maxLength: 15, nullable: false),
-                    Created = table.Column<DateTimeOffset>(nullable: false, defaultValueSql: "getdate()")
+                    Created = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {
@@ -79,7 +79,7 @@ namespace AdminPanelTutorial.Migrations
                     Health_condition = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Doctor_id = table.Column<int>(nullable: false),
                     Nurse_id = table.Column<int>(nullable: false),
-                    Created = table.Column<DateTimeOffset>(nullable: false, defaultValueSql: "getdate()")
+                    Created = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {

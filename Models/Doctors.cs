@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace CRUD_Operations.Models
+namespace AdminPanelTutorial.Models
 {
     public partial class Doctors
     {
@@ -17,7 +18,8 @@ namespace CRUD_Operations.Models
         public string Phone { get; set; }
         public int Gender { get; set; }
         public string Specialist { get; set; }
-        public DateTimeOffset Created { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Created { get; set; }
 
         public virtual ICollection<Patients> Patients { get; set; }
     }

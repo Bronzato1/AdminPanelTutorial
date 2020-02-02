@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace CRUD_Operations.Models
+namespace AdminPanelTutorial.Models
 {
     public partial class Nurses
     {
@@ -15,7 +16,8 @@ namespace CRUD_Operations.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
-        public DateTimeOffset Created { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Created { get; set; }
 
         public virtual ICollection<Patients> Patients { get; set; }
     }
