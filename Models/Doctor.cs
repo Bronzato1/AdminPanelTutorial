@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdminPanelTutorial.Models
 {
-    public partial class Doctors
+    public partial class Doctor
     {
-        public Doctors()
+        public Doctor()
         {
-            Patients = new HashSet<Patients>();
+            Patients = new HashSet<Patient>();
         }
 
         public int Id { get; set; }
@@ -18,9 +18,9 @@ namespace AdminPanelTutorial.Models
         public string Phone { get; set; }
         public int Gender { get; set; }
         public string Specialist { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime Created { get; set; }
 
-        public virtual ICollection<Patients> Patients { get; set; }
+        public virtual ICollection<Patient> Patients { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdminPanelTutorial.Models
 {
-    public partial class Admins
+    public partial class Admin
     {
         public int Id { get; set; }
         public string Name { get; set; }

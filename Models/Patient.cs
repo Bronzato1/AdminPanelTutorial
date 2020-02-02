@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdminPanelTutorial.Models
 {
-    public partial class Patients
+    public partial class Patient
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace AdminPanelTutorial.Models
         [DataType(DataType.Date)]
         public DateTime Created { get; set; }
 
-        public virtual Doctors Doctor { get; set; }
-        public virtual Nurses Nurse { get; set; }
+        public virtual Doctor Doctor { get; set; }
+        public virtual Nurse Nurse { get; set; }
     }
 }

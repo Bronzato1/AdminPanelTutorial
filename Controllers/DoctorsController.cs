@@ -24,7 +24,7 @@ namespace AdminPanelTutorial
         }
 
         [HttpPost]
-        public ActionResult CreateDoctor(Doctors doctor)
+        public ActionResult CreateDoctor(Doctor doctor)
         {
             _dbContext.Doctors.Add(doctor);
             _dbContext.SaveChanges();
@@ -36,7 +36,7 @@ namespace AdminPanelTutorial
         {
             try
             {
-                Doctors doctor = _dbContext.Doctors.Where(s => s.Id == id).First();
+                Doctor doctor = _dbContext.Doctors.Where(s => s.Id == id).First();
                 _dbContext.Doctors.Remove(doctor);
                 _dbContext.SaveChanges();
                 return true;
@@ -54,9 +54,9 @@ namespace AdminPanelTutorial
         }
 
         [HttpPost]
-        public ActionResult UpdateDoctor(Doctors doctor)
+        public ActionResult UpdateDoctor(Doctor doctor)
         {
-            Doctors d = _dbContext.Doctors.Where(s => s.Id == doctor.Id).First();
+            Doctor d = _dbContext.Doctors.Where(s => s.Id == doctor.Id).First();
             d.Name = doctor.Name;
             d.Phone = doctor.Phone;
             d.Specialist = doctor.Specialist;

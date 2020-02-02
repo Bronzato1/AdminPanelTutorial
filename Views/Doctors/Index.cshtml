@@ -1,4 +1,8 @@
-@model IEnumerable<AdminPanelTutorial.Models.Doctors>
+@model IEnumerable<AdminPanelTutorial.Models.Doctor>
+
+@section head {
+     //Any css you want to add
+}
 
     <section class="content-header">
       <div class="container-fluid">
@@ -23,16 +27,9 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Doctors</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
         </div>
-        <div class="card-body p-0">
-          <table class="table table-striped projects">
+        <div class="card-body">
+          <table id="doctorsTable" class="table table-bordered table-striped">
               <thead>
                   <tr>
                       <th>
@@ -107,3 +104,51 @@
 
     </section>
     <!-- /.content -->
+
+<!-- page script -->
+
+@section Scripts {
+     
+  <script>
+    
+    $(function () {
+      $('#doctorsTable').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+      });
+    });
+
+    function Delete(id){
+        var txt;
+        var r = confirm("Are you sure you want to Delete?");
+        if (r == true) {
+            
+            $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("Delete", "Doctors")',
+                data: {
+                    id: id
+                },
+                error: function (result) {
+                    alert("error");
+                },
+                success: function (result) {
+                    if (result == true) {
+                        var baseUrl="/Doctors";
+                        window.location.reload();
+                    }
+                    else {
+                        alert("There is a problem, Try Later!");
+                    }
+                }
+            });
+        } 
+    }
+  </script>
+
+}
