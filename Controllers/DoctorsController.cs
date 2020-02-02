@@ -48,6 +48,11 @@ namespace AdminPanelTutorial
 
         }
 
+        public ActionResult View(int id)
+        {
+            return View(_dbContext.Doctors.Where(s => s.Id == id).First());
+        }
+
         public ActionResult Update(int id)
         {
             return View(_dbContext.Doctors.Where(s => s.Id == id).First());

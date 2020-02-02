@@ -16,7 +16,7 @@
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Doctor update</li>
+            <li class="breadcrumb-item active">Doctor view</li>
         </ol>
         </div>
     </div>
@@ -38,23 +38,23 @@
 
                     <div class="form-group">
                     <label for="inputName">Name</label>
-                    <input type="text" name="Name" class="form-control" asp-for="Name">
+                    <input type="text" name="Name" class="form-control" asp-for="Name" disabled>
                     </div>
                     <div class="form-group">
                     <label for="inputEmail">Email</label>
-                    <input type="text" name="Email" class="form-control" asp-for="Email">
+                    <input type="text" name="Email" class="form-control" asp-for="Email" disabled>
                     </div>
                     <div class="form-group">
                     <label for="inputPassword">Password</label>
-                    <input type="text" name="Password" class="form-control" asp-for="Password">
+                    <input type="text" name="Password" class="form-control" asp-for="Password" disabled>
                     </div>
                     <div class="form-group">
                     <label for="inputPhone">Phone</label>
-                    <input type="text" name="Phone" class="form-control" asp-for="Phone">
+                    <input type="text" name="Phone" class="form-control" asp-for="Phone" disabled>
                     </div>
                     <div class="form-group">
                     <label for="inputGender">Gender</label>
-                        <select name="Gender" class="form-control custom-select" asp-for="Gender">
+                        <select name="Gender" class="form-control custom-select" asp-for="Gender" disabled>
                         <option selected disabled>Select one</option>
                         <option value="0">Male</option>
                         <option value="1">Female</option>
@@ -62,11 +62,10 @@
                     </div>
                     <div class="form-group">
                     <label for="inputSpecialist">Specialist</label>
-                    <input type="text" name="Specialist" class="form-control" asp-for="Specialist">
+                    <input type="text" name="Specialist" class="form-control" asp-for="Specialist" disabled>
                     </div>
                     <div>
-                        <a class="btn btn-secondary" asp-controller="Doctors" asp-action="Index">Cancel</a>
-                        <input type="submit" value="Update doctor" class="btn btn-success float-right">
+                        <a class="btn btn-secondary" asp-controller="Doctors" asp-action="Index">Back</a>
                     </div>
                 </form>
             </div>
