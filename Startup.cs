@@ -32,10 +32,13 @@ namespace AdminPanelTutorial
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ConnectionForSqlServerLocaldb")));
 
-            services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                            .AddEntityFrameworkStores<MyDbContext>();
+            services
+                .AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<MyDbContext>();
 
-            services.AddMvc(option => option.EnableEndpointRouting = false);
+            services
+                .AddMvc(option => option.EnableEndpointRouting = false)
+                .AddRazorPagesOptions(options => { });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -55,6 +58,9 @@ namespace AdminPanelTutorial
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "identity",
+                    template: "{area=Identity}/{controller=Account}/{action=Login}/{id?}");
             });
         }
     }
