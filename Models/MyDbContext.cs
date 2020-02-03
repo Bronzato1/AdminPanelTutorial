@@ -1,10 +1,10 @@
 using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AdminPanelTutorial.Models
 {
-    public partial class MyDbContext : DbContext
+    public partial class MyDbContext : IdentityDbContext
     {
         public MyDbContext()
         {
@@ -233,6 +233,8 @@ namespace AdminPanelTutorial.Models
             });
         
             SeedData(modelBuilder);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         protected void SeedData(ModelBuilder modelBuilder)

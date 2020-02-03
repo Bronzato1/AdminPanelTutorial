@@ -1,10 +1,12 @@
 using System.Linq;
 using AdminPanelTutorial.Models;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 namespace AdminPanelTutorial
 {
+    [Authorize]
     public class DoctorsController : Controller
     {
         MyDbContext _dbContext;

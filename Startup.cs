@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 
 namespace AdminPanelTutorial
 {
@@ -23,12 +25,15 @@ namespace AdminPanelTutorial
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ConnectionForSqlServerLocaldb")));
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                            .AddEntityFrameworkStores<MyDbContext>();
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
@@ -41,6 +46,9 @@ namespace AdminPanelTutorial
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseMvc(routes =>
             {
