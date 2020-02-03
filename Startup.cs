@@ -32,7 +32,7 @@ namespace AdminPanelTutorial
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ConnectionForSqlServerLocaldb")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = true)
                             .AddEntityFrameworkStores<MyDbContext>();
 
             services.AddMvc(option => option.EnableEndpointRouting = false);

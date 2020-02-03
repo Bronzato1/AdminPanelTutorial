@@ -1,10 +1,11 @@
 using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminPanelTutorial.Models
 {
-    public partial class MyDbContext : IdentityDbContext
+    public partial class MyDbContext : IdentityDbContext<CustomUser>
     {
         public MyDbContext()
         {
@@ -572,5 +573,11 @@ namespace AdminPanelTutorial.Models
              }
             );
         }
+    }
+
+    public class CustomUser : IdentityUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
